@@ -1,16 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  background: #f8fafc;
+  /* Warm Soft Cream Base Palette */
+  --bg-light: #fefce8;
+  --bg-cream: #fffbeb;
+  --surface-white: #ffffff;
+  --border-light: rgba(226, 232, 240, 0.8);
+
+  /* Vivid Accents: Crimson, Orange & Purple */
+  --crimson-red: #e11d48;
+  --warm-orange: #f97316;
+  --deep-purple: #7c3aed;
+  
+  /* High Contrast Typography */
+  --text-charcoal: #0f172a;
+  --text-slate: #334155;
+  --text-muted: #64748b;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
+/* 1. Global Light Canvas & Warm Background */
+html, body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-cream) !important;
+  color: var(--text-charcoal) !important;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(225, 29, 72, 0.04) 0%, transparent 50%) !important;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* 2. Frosted Navbar Fix */
+header, nav, div[class*="nav"] {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+header a, nav a, header span {
+  color: var(--text-slate) !important;
+}
+
+header a:hover, nav a:hover {
+  color: var(--crimson-red) !important;
+}
+
+/* 3. High Contrast Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-charcoal) !important;
+  font-weight: 800;
+}
+
+p, span, label, div {
+  color: var(--text-slate);
+}
+
+/* Crimson -> Orange -> Purple Gradient Text */
+h1 span, .text-gradient {
+  background: linear-gradient(135deg, #e11d48 0%, #f97316 50%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
+}
+
+/* 4. Glass Cards & Clean White Surfaces */
+div[class*="bg-slate-700"],
+div[class*="bg-slate-800"],
+div[class*="bg-slate-900"],
+div[class*="bg-white"],
+div[class*="rounded"] {
+  background-color: var(--surface-white) !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04) !important;
+  color: var(--text-charcoal) !important;
+}
+
+/* Force dark text inside light cards */
+div[class*="bg-"] h1,
+div[class*="bg-"] h2,
+div[class*="bg-"] h3,
+div[class*="bg-"] h4,
+div[class*="bg-"] p {
+  color: var(--text-charcoal) !important;
+}
+
+/* Mission & Vision Colored Block Overrides */
+div[class*="bg-pink"],
+div[class*="bg-rose"] {
+  background: linear-gradient(135deg, #be185d 0%, #e11d48 100%) !important;
+  color: #ffffff !important;
+}
+
+div[class*="bg-amber"],
+div[class*="bg-orange"] {
+  background: linear-gradient(135deg, #ea580c 0%, #d97706 100%) !important;
+  color: #ffffff !important;
+}
+
+div[class*="bg-pink"] *,
+div[class*="bg-amber"] * {
+  color: #ffffff !important;
+}
+
+/* 5. Button Styling */
+
+/* Primary Button (Crimson to Orange Gradient) */
+button[class*="bg-pink"],
+button[class*="bg-rose"],
+button[class*="bg-red"],
+.btn-primary {
+  background: linear-gradient(135deg, #e11d48 0%, #f97316 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 18px rgba(225, 29, 72, 0.3) !important;
+  transition: all 0.25s ease !important;
+}
+
+button[class*="bg-pink"]:hover,
+button[class*="bg-rose"]:hover,
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(225, 29, 72, 0.45) !important;
+}
+
+/* Secondary & Purple Accented Buttons */
+button[class*="bg-white"],
+button[class*="border"],
+.btn-secondary {
+  background: #ffffff !important;
+  border: 1.5px solid #ddd6fe !important;
+  color: #7c3aed !important;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08) !important;
+  transition: all 0.25s ease !important;
+}
+
+button[class*="bg-white"]:hover,
+.btn-secondary:hover {
+  background: #f5f3ff !important;
+  border-color: #7c3aed !important;
+  transform: translateY(-2px);
+}
+
+/* 6. Contact Form Inputs */
+input, textarea, select {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: var(--text-charcoal) !important;
+  border-radius: 0.75rem !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--deep-purple) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1) !important;
+}
+
+/* 7. Top Badges (Soft Purple Tint) */
+div[class*="rounded-full"][class*="bg-"] {
+  background: #f5f3ff !important;
+  border: 1px solid #ddd6fe !important;
+  color: #7c3aed !important;
+}
+
+/* 8. Footer Theme Overrides */
+footer, div[class*="footer"] {
+  background-color: #fffbeb !important; /* Soft Cream Background */
+  border-top: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+
+/* Footer Typography & Link Colors */
+footer h1, footer h2, footer h3, footer h4, footer span[class*="font-bold"] {
+  color: #0f172a !important; /* Charcoal Header */
+}
+
+footer p, footer span, footer div {
+  color: #475569 !important; /* Slate Text */
+}
+
+footer a {
+  color: #475569 !important;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: #7c3aed !important; /* Deep Purple Hover */
+}
+
+/* Social Icon Badges */
+footer div[class*="rounded"] {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #7c3aed !important;
+}
+
+footer div[class*="rounded"]:hover {
+  background-color: #f5f3ff !important;
+  border-color: #ddd6fe !important;
 }
