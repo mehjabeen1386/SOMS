@@ -5,7 +5,7 @@ HopeHaven OMS is a state-of-the-art orphanage management platform designed to st
  * Child Record Management: Secure data grid to view, add, update, and manage child records (including age, gender, guardian details, and status like Active or Transferred).
  * Donation Portal: Structured contribution tiers including Monthly Meal Sponsors, Education Supporters, Guardian Angels, and custom donation amounts.
  * Secure Authentication: Dedicated sign-in and portal access control for administrators and staff.
- * Interactive Contact & Support: Built-in communication channels, location details, and inquiry forms for volunteers, donors, and admissions.
+ * Interactive Contact & Support: Built-in communication channels, location details, and inquiry forms for volunteers, donors, and admissions.<br>
 🛠️ Tech Stack
  * Frontend & Framework: Next.js (App Router), React, TypeScript
  * Styling: Tailwind CSS
@@ -17,8 +17,8 @@ Prerequisites
  * Node.js (v18+ recommended)
  * npm or yarn
 Installation & Setup
- * Clone the repository:
-   git clone https://github.com/mehjabeen1386/SOMS.git
+* Clone the repository:
+git clone https://github.com/mehjabeen1386/SOMS.git
 cd OMS
 
  * Install dependencies:
