@@ -26,12 +26,14 @@ HopeHaven SOMS is a state-of-the-art orphanage management platform designed to s
    
 🚀 Getting Started
 Follow these instructions to set up and run the project locally on your machine.
+
 Prerequisites
 
  * Node.js (v18+ recommended)
  * npm or yarn
   
 Installation & Setup
+
 * Clone the repository:
 
 git clone 
@@ -41,21 +43,28 @@ https://github.com/mehjabeen1386/SOMS.git
 cd SOMS
 
  * Install dependencies:
+ * 
    npm install
 
  * Configure Environment Variables:
-   Create a .env file in the root directory and add your database connection string:
+
+ * Create a .env file in the root directory and add your database connection string:
+
    DATABASE_URL="file:./dev.db"
 
  * Initialize Prisma & Database:
+   
    npx prisma generate
 npx prisma db push
 
  * Run the Development Server:
+   
    npm run dev
 
  * Open the Application:
+   
    Open http://localhost:3000 in your browser to view the platform.
+   
 📂 Project Structure
 <pre><code>
 OMS/
