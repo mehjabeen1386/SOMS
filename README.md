@@ -29,7 +29,7 @@ Prerequisites
 
  * Node.js (v18+ recommended)
  * npm or yarn
- * 
+  
 Installation & Setup
 * Clone the repository:
 
