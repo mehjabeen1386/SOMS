@@ -85,6 +85,8 @@ OMS/
 
 License
 
-Copyright © 2026 HopeHaven / SOMS. All rights reserved.
+Copyright © 2026 HopeHaven / SOMS. 
+
+All rights reserved.
 
 This repository is shared for portfolio and demonstration purposes only. Unauthorized copying, modification, distribution, or reuse of this code is strictly prohibited.
