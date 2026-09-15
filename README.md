@@ -1,92 +1,136 @@
-HopeHaven - Smart Orphanage Management System (SOMS)
+# Smart Orphanage Management System (SOMS)
 
-HopeHaven SOMS is a state-of-the-art orphanage management platform designed to streamline daily operations, track child care records, manage donations, and foster a supportive environment for holistic child development.
+SOMS is a full-stack Next.js platform for organizing orphanage operations and supporting child wellbeing. It provides an administrative dashboard, child records, donation information, authentication pages, and contact workflows backed by Prisma and a relational database.
 
+## Features
 
-🌟 Key Features
+- Dashboard statistics for total, active, male, and female children
+- Child record management with guardian, gender, age, and status information
+- Add and update child records through the dashboard
+- Donation portal with sponsorship and custom contribution options
+- Login and signup pages for controlled access
+- About, contact, and support pages
+- Next.js API routes for authentication and children data
+- Prisma database access with a reusable client helper
 
- * OMS Admin Dashboard: Real-time metrics overview displaying Total Children, Active Children, Male, and Female counts.
-   
- * Child Record Management: Secure data grid to view, add, update, and manage child records (including age, gender, guardian details, and status like Active or Transferred).
+## Tech Stack
 
- * Donation Portal: Structured contribution tiers including Monthly Meal Sponsors, Education Supporters, Guardian Angels, and custom donation amounts.
-   
- * Secure Authentication: Dedicated sign-in and portal access control for administrators and staff.
-   
- * Interactive Contact & Support: Built-in communication channels, location details, and inquiry forms for volunteers, donors, and admissions.<br>
- 
-🛠️ Tech Stack
- * Frontend & Framework: Next.js (App Router), React, TypeScript
-   
- * Styling: Tailwind CSS
+- Next.js 14 App Router
+- React 18 and TypeScript
+- Tailwind CSS
+- Prisma ORM
+- SQLite by default for local development
+- Lucide React icons
 
- * Database & ORM: Prisma ORM with SQLite/Relational Database
-   
- * State Management: React Hooks (useState, useEffect)
-   
-🚀 Getting Started
-Follow these instructions to set up and run the project locally on your machine.
+## Repository Structure
 
-Prerequisites
+```text
+SOMS/
+├── prisma/schema.prisma        # Database schema
+├── src/app/                    # Pages and API routes
+│   ├── api/auth/signup/        # Signup API route
+│   ├── api/children/           # Children API route
+│   ├── dashboard/              # Admin dashboard
+│   ├── donate/                 # Donation page
+│   ├── login/                  # Login page
+│   └── signup/                 # Signup page
+├── src/components/             # Shared UI components
+├── src/lib/prisma.ts           # Prisma client singleton
+├── .env.example                # Environment template
+└── package.json
+```
 
- * Node.js (v18+ recommended)
- * npm or yarn
-  
-Installation & Setup
+## Requirements
 
-* Clone the repository:
+- Node.js 18 or newer
+- npm 9 or newer
 
-git clone 
+## Local Setup
 
-https://github.com/mehjabeen1386/SOMS.git
+Clone the repository:
 
+```bash
+git clone https://github.com/mehjabeen1386/SOMS.git
 cd SOMS
+```
 
- * Install dependencies:
- * 
-   npm install
+Install dependencies:
 
- * Configure Environment Variables:
+```bash
+npm install
+```
 
- * Create a .env file in the root directory and add your database connection string:
+Create the environment file:
 
-   DATABASE_URL="file:./dev.db"
+```bash
+copy .env.example .env    # Windows
+# cp .env.example .env   # macOS/Linux
+```
 
- * Initialize Prisma & Database:
-   
-   npx prisma generate
+For the default local SQLite database, `.env` should contain:
+
+```env
+DATABASE_URL="file:./dev.db"
+```
+
+Generate Prisma Client and create/update the local database:
+
+```bash
+npx prisma generate
 npx prisma db push
+```
 
- * Run the Development Server:
-   
-   npm run dev
+Start the development server:
 
- * Open the Application:
-   
-   Open http://localhost:3000 in your browser to view the platform.
-   
-📂 Project Structure
-<pre><code>
-OMS/
-├── prisma/               # Database schema and migrations
-├── src/
-│   ├── app/              # Next.js App Router (Pages & API Routes)
-│   │   ├── api/          # Backend API endpoints (e.g., /api/children)
-│   │   ├── globals.css   # Global Tailwind styles
-│   │   ├── layout.tsx    # Root layout component
-│   │   └── page.tsx      # Landing & Dashboard page view
-│   ├── components/       # Modular UI components
-│   │   ├── ChildrenTable.tsx  # Data table for child records & forms
-│   │   └── DashboardStats.tsx # Metric cards component
-│   └── lib/              # Utility files & Singleton Prisma client (`prisma.ts`)
-├── package.json
-├── tailwind.config.js
-└── tsconfig.json</code></pre>
+```bash
+npm run dev
+```
 
-License
+Open [http://localhost:3000](http://localhost:3000).
 
-Copyright © 2026 HopeHaven / SOMS. 
+## Useful Commands
 
-All rights reserved.
+```bash
+npm run dev          # Start the development server
+npm run build        # Generate Prisma Client and build Next.js
+npm start            # Start the production server
+npm run db:generate  # Generate Prisma Client
+npm run db:push      # Apply the Prisma schema to the database
+npm run db:studio    # Open Prisma Studio
+```
 
-This repository is shared for portfolio and demonstration purposes only. Unauthorized copying, modification, distribution, or reuse of this code is strictly prohibited.
+## Database
+
+The project uses Prisma with SQLite for local development. To use another relational database, update `DATABASE_URL` and the provider in `prisma/schema.prisma`, then run:
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+Do not commit `.env` or database credentials. Use `.env.example` as the safe configuration template.
+
+## Deployment
+
+SOMS can be deployed as a standard Next.js application on Vercel or another Node.js hosting provider.
+
+1. Configure `DATABASE_URL` in the hosting provider's environment variables.
+2. Run the project build command: `npm run build`.
+3. Start with `npm start` when using a persistent Node.js server.
+4. Use a production relational database instead of a local SQLite file for multi-user deployments.
+
+## Main Routes
+
+| Area | Route |
+| --- | --- |
+| Home | `/` |
+| About | `/about` |
+| Login | `/login` |
+| Signup | `/signup` |
+| Dashboard | `/dashboard` |
+| Donations | `/donate` |
+| Contact | `/contact` |
+
+## License
+
+Copyright © 2026 HopeHaven / Smart Orphanage Management System. All rights reserved. This repository is shared for portfolio and demonstration purposes only.
